@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  aggregator:
+    build: .
+    container_name: uts-aggregator
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - DB_PATH=/app/data/dedup.db
+      - PYTHONUNBUFFERED=1
+    restart: always
+    networks:
+      - uts-network
+
+  publisher:
+    build: .
+    container_name: uts-publisher
+    depends_on:
+      - aggregator
+    command: ["python", "src/publisher_service.py"]
+    environment:
+      - AGGREGATOR_URL=http://aggregator:8080/publish
+    restart: always
+    networks:
+      - uts-network
+
+networks:
+  uts-network:
+    driver: bridge

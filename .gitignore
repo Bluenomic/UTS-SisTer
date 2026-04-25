@@ -1,5 +1,18 @@
-/.pytest_cache
-/README.md
-/report.md
-/UTS Sistem Terdistribusi dan Parallel.pdf
-/venv
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.pytest_cache/
+performance_test.py
+
+# Databases
+*.db
+data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PDF
+*.pdf
