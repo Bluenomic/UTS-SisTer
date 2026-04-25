@@ -2,6 +2,8 @@
 
 Layanan aggregator log berbasis HTTP dengan fitur *Deduplication* dan *Idempotent Consumer*.
 
+Link Demo Youtube: https://youtu.be/pSVYtmyHP4o
+
 ## Prasyarat
 - Docker dan Docker Compose sudah terinstal di sistem.
 
